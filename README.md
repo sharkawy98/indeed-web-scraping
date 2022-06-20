@@ -4,4 +4,4 @@ Inspect, scrape, parse and save data engineering job postings from [indeed](http
 Used __`requests`__ & __`BeautifulSoup4`__ in the web scraping and saved the scraped data into csv file
 
 ## Part of the scraped jobs
-![image](https://user-images.githubusercontent.com/36075516/170893417-87c43761-e3e8-458e-b45f-54f06ec30667.png)
+![image](https://user-images.githubusercontent.com/36075516/174518102-6c39af1b-12dd-4975-be87-344ffbd3eda3.png)
