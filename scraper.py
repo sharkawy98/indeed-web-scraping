@@ -61,5 +61,23 @@ def get_job_opportunities(job_title):
     jobs_df.to_csv('dataEng_jobs.csv', index=False)
 
 
+def get_job_description(job_url):
+    print(job_url)
+    response = requests.get(job_url)
+    html = response.content
+    soup = BeautifulSoup(html, 'html.parser')
+    
+    job_desc_html = soup.find('div', id='jobDescriptionText')
+    job_desc = job_desc_html.get_text()
+    job_desc = ' '.join(job_desc.split())  # remove all white spaces 
+
+    return job_desc
+
+
+
 if __name__ == '__main__':
-    get_job_opportunities('data engineer')
+    jobs_df = get_job_opportunities('data engineer')
+
+    jobs_df['job_description'] = jobs_df['link'].apply(get_job_description)
+    
+    jobs_df.to_csv('dataEng_jobs.csv', index=False)
